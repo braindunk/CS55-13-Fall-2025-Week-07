@@ -8,6 +8,34 @@ import {
 import { auth } from "@/src/lib/firebase/clientApp";
 
 export function onAuthStateChanged(cb) {
+  return _onAuthStateChanged(auth, cb);
+}
+
+export function onIdTokenChanged(cb) {
+  return _onIdTokenChanged(auth, cb);
+}
+
+export async function signInWithGoogle() {
+  const provider = new GoogleAuthProvider();
+
+  try {
+    await signInWithPopup(auth, provider);
+  } catch (error) {
+    console.error("Error signing in with Google", error);
+  }
+}
+
+export async function signOut() {
+  try {
+    return auth.signOut();
+  } catch (error) {
+    console.error("Error signing out with Google", error);
+  }
+}
+
+/*
+// original placeholder functions from start of tutorial
+export function onAuthStateChanged(cb) {
   return () => {};
 }
 
@@ -22,3 +50,4 @@ export async function signInWithGoogle() {
 export async function signOut() {
   return;
 }
+*/
