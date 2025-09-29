@@ -9,6 +9,7 @@ import { getAuth } from "firebase/auth";
 
 // Returns an authenticated client SDK instance for use in Server Side Rendering
 // and Static Site Generation
+// new function from step 6
 export async function getAuthenticatedAppForUser() {
   const authIdToken = (await cookies()).get("__session")?.value;
 

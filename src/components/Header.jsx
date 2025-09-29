@@ -9,6 +9,7 @@ import {
 import { addFakeRestaurantsAndReviews } from "@/src/lib/firebase/firestore.js";
 import { setCookie, deleteCookie } from "cookies-next";
 
+// new function from step 6
 function useUserSession(initialUser) {
   useEffect(() => {
     return onIdTokenChanged(async (user) => {
